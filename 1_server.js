@@ -5,7 +5,6 @@ const url=require('url')
 
 const server=http.createServer((req,res)=>{
   const path=url.parse(req.url).pathname
-
   if(path==='/'){
     res.writeHead(200, {'Content-type':'text-html'})
     res.end('<h1>Home Page!</h1>')
