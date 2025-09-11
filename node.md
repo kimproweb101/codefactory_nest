@@ -14,3 +14,12 @@ QUERY GET
 BODY POST PATCH PUT DELETE
 
 22. Get Post 구현하기
+
+24. Not Found Exception 던지기
+
+25. 기본적으로 제공되는 Exception들 찾는 곳
+공식문서 docs.nestjs.com/exception-filters
+
+26. Post 요청 만들기
+201 post 요청 했을때 성공시 응답코드
+입력 요청시 마지막 id 값 구해서 1더하는 코드 
