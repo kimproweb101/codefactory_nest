@@ -1,4 +1,4 @@
-import { Body, Controller, Get, NotFoundException, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put } from '@nestjs/common';
 import { PostsService } from './posts.service';
 
 interface PostModel {
@@ -84,7 +84,7 @@ export class PostsController {
     @Body('title') title?: string,
     @Body('content') content?: string,
   ) {
-    const post = posts.find(post => post.id === +id);
+    const post = posts.find((post) => post.id === +id);
     if (!post) {
       throw new NotFoundException();
     }
@@ -101,9 +101,18 @@ export class PostsController {
       post.content = content;
     }
 
-    posts=posts.map(prevPost=>prevPost.id === +id ? post : prevPost);
-
+    posts = posts.map(prevPost => prevPost.id === +id ? post : prevPost);
     return post;
+  }
 
+  @Delete(':id')
+  deletePost(@Param('id') id: string) {
+    const post = posts.find((post) => post.id === +id);
+    if (!post) {
+      throw new NotFoundException();
+    }
+
+    posts = posts.filter((post) => post.id !== +id);
+    return id;
   }
 }
