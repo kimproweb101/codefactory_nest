@@ -36,3 +36,17 @@ BODY POST PATCH PUT DELETE
 서비스 로직은 서비스로
 
 30. Service 로 모든 로직 옮기기
+
+40. VSC에서 Postgresql db연결
+ctrl+shift+p
+postgresql:add conne
+127.0.0.1
+userid
+userpw
+port
+nestjs_local_database 이름 상관 없음
+
+41. NestJS에 Typeorm 설정하기
+```
+pnpm add @nestjs/typeorm typeorm pg @nestjs/config
+```
