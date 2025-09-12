@@ -12,6 +12,7 @@ import { PostsModel } from './posts/entities/posts.entity';
       isGlobal: true,
     }),
     PostsModule,
+    TypeOrmModule.forFeature([PostsModel]),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
