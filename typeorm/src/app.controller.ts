@@ -22,7 +22,7 @@ export class AppController {
     const user = this.userRepository.create({
       title,
     });
-    return this.userRepository.save({});
+    return this.userRepository.save(user);
   }
 
   @Get('users')
