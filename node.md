@@ -50,3 +50,5 @@ nestjs_local_database 이름 상관 없음
 ```
 pnpm add @nestjs/typeorm typeorm pg @nestjs/config
 ```
+
+42. Entity로 테이블 생성하기
