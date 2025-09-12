@@ -5,13 +5,29 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModel } from './entity/user.entity';
 import { StudentModel, TeacherModel } from './entity/person.entity';
+import {
+  AirplaneModel,
+  BookModel,
+  CarModel,
+  ComputerModel,
+  SingleBaseModel,
+} from './entity/inheritance.entity';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    TypeOrmModule.forFeature([UserModel, StudentModel, TeacherModel]),
+    TypeOrmModule.forFeature([
+      UserModel,
+      StudentModel,
+      TeacherModel,
+      BookModel,
+      CarModel,
+      SingleBaseModel,
+      ComputerModel,
+      AirplaneModel,
+    ]),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -22,7 +38,16 @@ import { StudentModel, TeacherModel } from './entity/person.entity';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: [UserModel, StudentModel, TeacherModel],
+        entities: [
+          UserModel,
+          StudentModel,
+          TeacherModel,
+          BookModel,
+          CarModel,
+          SingleBaseModel,
+          ComputerModel,
+          AirplaneModel,
+        ],
         synchronize: true,
       }),
     }),
