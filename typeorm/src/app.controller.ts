@@ -22,17 +22,12 @@ export class AppController {
     const user = this.userRepository.create({
       title,
     });
-    return this.userRepository.save(user);
+    return this.userRepository.save({});
   }
 
   @Get('users')
   getUsers() {
-    return this.userRepository.find({
-      select: {
-        id: true,
-        title: true,
-      },
-    });
+    return this.userRepository.find();
   }
 
   @Get('users/:id')

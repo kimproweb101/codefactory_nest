@@ -8,6 +8,11 @@ import {
   VersionColumn,
 } from 'typeorm';
 
+export enum Role {
+  USER = 'user',
+  ADMIN = 'admin',
+}
+
 @Entity()
 export class UserModel {
   // UUID 자동 생성 PK
@@ -37,9 +42,16 @@ export class UserModel {
     // 기본 값
     default: 'default value',
     // row 끼리 겹치면 안되는 설정 예 : 이메일
-    unique: true,
+    unique: false,
   })
   title: string;
+
+  @Column({
+    type: 'enum',
+    enum: Role,
+    default: Role.USER,
+  })
+  role: Role;
 
   // 데이터 생성 일자
   @CreateDateColumn()
