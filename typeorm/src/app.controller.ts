@@ -18,16 +18,21 @@ export class AppController {
   ) {}
 
   @Post('users')
-  postUsers() {
+  postUsers(title: string) {
     const user = this.userRepository.create({
-      title: 'title',
+      title,
     });
     return this.userRepository.save(user);
   }
 
   @Get('users')
   getUsers() {
-    return this.userRepository.find();
+    return this.userRepository.find({
+      select: {
+        id: true,
+        title: true,
+      },
+    });
   }
 
   @Get('users/:id')
