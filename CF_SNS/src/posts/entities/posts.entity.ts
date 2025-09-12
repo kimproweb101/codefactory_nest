@@ -15,7 +15,7 @@ export class PostsModel {
   content: string;
 
   @Column()
-  likeCount: string;
+  likeCount: number;
 
   @Column()
   commentCount: number;
