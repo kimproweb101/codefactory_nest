@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostsModule } from './posts/posts.module';
 import { PostsModel } from './posts/entities/posts.entity';
+import { UsersModule } from './users/users.module';
+import { UsersModel } from './users/entities/users.entity';
 
 @Module({
   imports: [
@@ -12,7 +14,7 @@ import { PostsModel } from './posts/entities/posts.entity';
       isGlobal: true,
     }),
     PostsModule,
-    TypeOrmModule.forFeature([PostsModel]),
+    TypeOrmModule.forFeature([PostsModel, UsersModel]),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -23,11 +25,12 @@ import { PostsModel } from './posts/entities/posts.entity';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: [PostsModel],
+        entities: [PostsModel, UsersModel],
         // entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true,
       }),
     }),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
