@@ -14,6 +14,7 @@ import {
 } from './entity/inheritance.entity';
 import { ProfileModel } from './entity/profile.entity';
 import { PostModel } from './entity/post.entity';
+import { TagModel } from './entity/tag.entity';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { PostModel } from './entity/post.entity';
       AirplaneModel,
       ProfileModel,
       PostModel,
+      TagModel,
     ]),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
@@ -53,6 +55,7 @@ import { PostModel } from './entity/post.entity';
           AirplaneModel,
           ProfileModel,
           PostModel,
+          TagModel,
         ],
         synchronize: true,
       }),
