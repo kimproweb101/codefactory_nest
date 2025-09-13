@@ -13,6 +13,7 @@ import {
   SingleBaseModel,
 } from './entity/inheritance.entity';
 import { ProfileModel } from './entity/profile.entity';
+import { PostModel } from './entity/post.entity';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { ProfileModel } from './entity/profile.entity';
       ComputerModel,
       AirplaneModel,
       ProfileModel,
+      PostModel,
     ]),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
@@ -50,6 +52,7 @@ import { ProfileModel } from './entity/profile.entity';
           ComputerModel,
           AirplaneModel,
           ProfileModel,
+          PostModel,
         ],
         synchronize: true,
       }),
