@@ -5,32 +5,35 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-
-export enum Role {
-  USER = 'user',
-  ADMIN = 'admin',
-}
+import { RolesEnum } from '../const/roles.const';
 
 @Entity()
 export class UsersModel {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  // 1) 길이가 20을 넘지 않을 것
+  // 2) 유일무이한 값이 될 것
+  @Column({
+    length: 20,
+    unique: true,
+  })
   nickname: string;
 
-  @Column()
+  // 1) 이메일 유일무이한 값이 될 것
+  @Column({
+    unique: true,
+  })
   email: string;
 
   @Column()
   password: string;
 
   @Column({
-    type: 'enum',
-    enum: Role,
-    default: Role.USER,
+    enum: Object.values(RolesEnum),
+    default: RolesEnum.USER,
   })
-  role: Role;
+  role: RolesEnum;
 
   // 데이터 생성 일자
   @CreateDateColumn()
