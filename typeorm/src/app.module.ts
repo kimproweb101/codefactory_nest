@@ -12,6 +12,7 @@ import {
   ComputerModel,
   SingleBaseModel,
 } from './entity/inheritance.entity';
+import { ProfileModel } from './entity/profile.entity';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import {
       SingleBaseModel,
       ComputerModel,
       AirplaneModel,
+      ProfileModel,
     ]),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
@@ -47,6 +49,7 @@ import {
           SingleBaseModel,
           ComputerModel,
           AirplaneModel,
+          ProfileModel,
         ],
         synchronize: true,
       }),
