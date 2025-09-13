@@ -9,7 +9,19 @@ import {
 } from '@nestjs/common';
 import { UserModel } from './entity/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import {
+  Between,
+  Equal,
+  ILike,
+  In,
+  IsNull,
+  LessThan,
+  LessThanOrEqual,
+  Like,
+  MoreThanOrEqual,
+  Not,
+  Repository,
+} from 'typeorm';
 import { ProfileModel } from './entity/profile.entity';
 import { PostModel } from './entity/post.entity';
 import { TagModel } from './entity/tag.entity';
@@ -28,29 +40,52 @@ export class AppController {
   ) {}
 
   @Post('users')
-  postUsers(email: string) {
-    const user = this.userRepository.create({
-      email: '1234@gmail.com',
-    });
-    return this.userRepository.save(user);
+  async postUsers() {
+    for (let i = 0; i < 100; i++) {
+      await this.userRepository.save({
+        email: `user-${i}@google.com`,
+      });
+    }
   }
 
   @Get('users')
   getUsers() {
     return this.userRepository.find({
+      // where: {
+      // [1] 아닌경우 가져오기
+      // id: Not(1),
+      // [2] 적은경우 가져오기
+      // id: LessThan(30),
+      // [3] 작거나 같거나
+      // id: LessThanOrEqual(30),
+      // [4] 크거나 같거나
+      // id: MoreThanOrEqual(30),
+      // [5] 같은경우
+      // id: Equal(30),
+      // [6] 유사값
+      // email: Like('%0%'),
+      // [7] 대소문자 구분 안하는 유사값
+      // email: ILike('%GOOGLE%'),
+      // 사이값
+      // id: Between(10, 15),
+      // 해당되는 여러개의 값
+      // id: In([1, 3, 5, 7]),
+      // null 경우
+      // id: IsNull(),
+      // },
       // 어떤 프로퍼티를 선택할지
       // 기본은 모든 프로퍼티를 가져온다
       // 만약에 select를 정의하지 않으면
       // select를 정의하면 정의된 프로퍼티를 가져온다
-      select: {
-        id: true,
-        email: true,
-        createdAt: true,
-        version: true,
-        profile: {
-          id: true,
-        },
-      },
+      // select: {
+      //   id: true,
+      //   email: true,
+      //   createdAt: true,
+      //   version: true,
+      //   profile: {
+      //     id: true,
+      //   },
+      // },
       // 필터링할 조건을 입력
       // [1] and 검색
       // where: {
@@ -61,9 +96,9 @@ export class AppController {
       // where: [{ id: 3 }, { version: 1 }],
       // [3] 관계를 가져오는법
       // [4] relation
-      relations: {
-        profile: true,
-      },
+      // relations: {
+      //   profile: true,
+      // },
       // [5] relation table 컬럼 검색
       // where: {
       //   profile: {
@@ -71,13 +106,13 @@ export class AppController {
       //   },
       // },
       // [6] order
-      order: {
-        id: 'DESC',
-      },
+      // order: {
+      //   id: 'DESC',
+      // },
       // skip 처음 몇개를 제외할지
-      skip: 0,
+      // skip: 0,
       // take 몇개를 가져올지 [0 : all, 1 :1개, 2: 2개]
-      take: 1,
+      // take: 1,
     });
   }
 
