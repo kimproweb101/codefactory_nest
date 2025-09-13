@@ -55,3 +55,14 @@ pnpm add @nestjs/typeorm typeorm pg @nestjs/config
 42. Entity로 테이블 생성하기
 
 #49. Typeorm 공부할 프로젝트 세팅하기
+
+#60. Relation Option
+
+```
+@OneToOne(() => ProfileModel, (profile) => profile.user, {
+    // find() 실행 할때마다 항상 가져올 relation
+    eager: true,
+    // 저장할때 relation을 한번에 같이 저장가능
+    cascade: true,
+  })
+```

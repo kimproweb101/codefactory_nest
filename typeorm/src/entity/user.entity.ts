@@ -8,6 +8,7 @@ import {
   VersionColumn,
   OneToOne,
   OneToMany,
+  JoinColumn,
 } from 'typeorm';
 import { ProfileModel } from './profile.entity';
 import { PostModel } from './post.entity';
@@ -20,8 +21,8 @@ export enum Role {
 @Entity()
 export class UserModel {
   // UUID 자동 생성 PK
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column()
   email: string;
@@ -77,7 +78,22 @@ export class UserModel {
   @Generated('uuid')
   additionalId: string;
 
-  @OneToOne(() => ProfileModel, (profile) => profile.user)
+  @OneToOne(() => ProfileModel, (profile) => profile.user, {
+    // find() 실행 할때마다 항상 가져올 relation
+    eager: true,
+    // 저장할때 relation을 한번에 같이 저장가능
+    cascade: true,
+    // null이 가능한지 - 최신버전 작동안함
+    // nullable: false,
+    // 관계가 삭제됐을때
+    // no action -> 아무것도 안함
+    // cascade -> 참조하는 Row도 같이 삭제
+    // set null -> 참조하는 Row에서 참조 id를 null로 변경
+    // set default -> 기본 세팅으로 설정 (테이블의 기본 세팅)
+    // RESTRICT -> 참조하고 있는 row가 있는경우 참조당하는 Row삭제 불가
+    onDelete: 'RESTRICT',
+  })
+  @JoinColumn()
   profile: ProfileModel;
 
   @OneToMany(() => PostModel, (post) => post.author)

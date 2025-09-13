@@ -1,5 +1,6 @@
 import {
   Controller,
+  Delete,
   Get,
   NotFoundException,
   Param,
@@ -36,19 +37,14 @@ export class AppController {
 
   @Get('users')
   getUsers() {
-    return this.userRepository.find({
-      relations: {
-        profile: true,
-        posts: true,
-      },
-    });
+    return this.userRepository.find({});
   }
 
   @Get('users/:id')
   async getUser(@Param('id') id: string) {
     const user = await this.userRepository.findOne({
       where: {
-        id,
+        id: +id,
       },
     });
     if (!user) {
@@ -61,7 +57,7 @@ export class AppController {
   async patchUser(@Param('id') id: string) {
     const user = await this.userRepository.findOne({
       where: {
-        id,
+        id: +id,
       },
     });
     return this.userRepository.save({
@@ -69,15 +65,18 @@ export class AppController {
     });
   }
 
+  @Delete('user/profile/:id')
+  async deleteProfile(@Param('id') id: string) {
+    return await this.profileRepository.delete(+id);
+  }
+
   @Post('user/profile')
   async createUserAndProfile() {
     const user = await this.userRepository.save({
       email: 'aaa@aaa.com',
-    });
-
-    const profile = await this.profileRepository.save({
-      profileImg: 'aa.jpg',
-      user,
+      profile: {
+        profileImg: 'asdf.jpg',
+      },
     });
     return user;
   }
@@ -143,12 +142,4 @@ export class AppController {
       },
     });
   }
-
-  // @Post('test')
-  // async test() {
-  //   const post1 = await this.postRepository.save({
-  //     title: 'NestJS Lecture',
-  //   });
-  //   return post1;
-  // }
 }
