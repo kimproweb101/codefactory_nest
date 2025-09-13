@@ -66,3 +66,5 @@ pnpm add @nestjs/typeorm typeorm pg @nestjs/config
     cascade: true,
   })
 ```
+
+73. 디버거 사용하기
