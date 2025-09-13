@@ -68,3 +68,26 @@ pnpm add @nestjs/typeorm typeorm pg @nestjs/config
 ```
 
 73. 디버거 사용하기
+
+74. 로그인 로직 정리하기
+
+### 설치
+
+```sh
+nest g resource
+auth
+rest api
+no
+```
+
+75. 토큰 signing 해보기
+
+설치
+
+```sh
+pnpm add @nestjs/jwt bcrypt
+```
+
+등록
+
+## Dependency 에러 해결법
