@@ -10,16 +10,18 @@ import {
 import { UserModel } from './entity/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import {
-  Between,
-  Equal,
   ILike,
-  In,
-  IsNull,
   LessThan,
-  LessThanOrEqual,
-  Like,
-  MoreThanOrEqual,
-  Not,
+  // Between,
+  // Equal,
+  // ILike,
+  // In,
+  // IsNull,
+  // LessThan,
+  // LessThanOrEqual,
+  // Like,
+  // MoreThanOrEqual,
+  // Not,
   Repository,
 } from 'typeorm';
 import { ProfileModel } from './entity/profile.entity';
@@ -39,6 +41,79 @@ export class AppController {
     private readonly tagRepository: Repository<TagModel>,
   ) {}
 
+  @Post('sample')
+  async sample() {
+    // 모델에 해당되는 객체 생성
+    // const user1 = this.userRepository.create({
+    //   email: 'test@codefactory.ai',
+    // });
+    // const user2 = await this.userRepository.save({
+    //   email: 'test@codefactory.ai',
+    // });
+    // preload
+    // 입력된 값을 기반으로 데이터베이스에 있는 데이터를 불러오고
+    // 추가 입력된 값으로 데이터베이스에서 가져온 값들을 대체함.
+    // 저장하지는 않음
+    // const user3 = await this.userRepository.preload({
+    //   id: 101,
+    //   email: 'codefactory@codefactory.ai',
+    // });
+    // 삭제하기
+    // await this.userRepository.delete(101);
+    // 값 증가 id가 1 인 row에 count 를 2씩 증가
+    // await this.userRepository.increment(
+    //   {
+    //     id: 1,
+    //   },
+    //   'count',
+    //   2,
+    // );
+    // 값 감소
+    // await this.userRepository.decrement({ id: 1 }, 'count', 2);
+    // return true;
+    // 갯수 카운팅하기
+    // const count = await this.userRepository.count({
+    //   where: {
+    //     email: ILike('%0%'),
+    //   },
+    // });
+    // return count;
+    // id가 4보다 작은 경우 합
+    // const sum = await this.userRepository.sum('count', {
+    //   id: LessThan(4),
+    // });
+    // return sum;
+    // id가 4보다 작은 경우 평균
+    // const average = await this.userRepository.average('count', {
+    //   id: LessThan(4),
+    // });
+    // return average;
+    // 최소값
+    // const min = await this.userRepository.minimum('count', {
+    //   id: LessThan(4),
+    // });
+    // return min;
+    // 최소값
+    // const max = await this.userRepository.maximum('count', {
+    //   id: LessThan(4),
+    // });
+    // return max;
+    // 검색
+    // const users=await this.userRepository.find({
+    // })
+    // const userOne = await this.userRepository.findOne({
+    //   where: {
+    //     id: 3,
+    //   },
+    // });
+    // return userOne;
+
+    const usersAndCount = await this.userRepository.findAndCount({
+      take: 3,
+    });
+    return usersAndCount;
+  }
+
   @Post('users')
   async postUsers() {
     for (let i = 0; i < 100; i++) {
@@ -51,6 +126,7 @@ export class AppController {
   @Get('users')
   getUsers() {
     return this.userRepository.find({
+      order: { id: 'ASC' },
       // where: {
       // [1] 아닌경우 가져오기
       // id: Not(1),
