@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersModel } from 'src/users/entities/users.entity';
-import { HASH_ROUNDS, JWT_SCRET } from './const/auth.const';
+import { HASH_ROUNDS, JWT_SECRET } from './const/auth.const';
 import { UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcrypt';
 
@@ -48,7 +48,7 @@ export class AuthService {
       type: isRefreshToken ? 'refresh' : 'access',
     };
     return this.jwtService.sign(playload, {
-      secret: JWT_SCRET,
+      secret: JWT_SECRET,
       // seconds
       expiresIn: isRefreshToken ? 3600 : 300,
     });
@@ -124,5 +124,38 @@ export class AuthService {
       email,
       password,
     };
+  }
+
+  /**
+   * 토큰 검증
+   */
+  verifyToken(token: string) {
+    return this.jwtService.verify(token, {
+      secret: JWT_SECRET,
+    });
+  }
+
+  rotateToken(token: string, isRefreshToken: boolean) {
+    const decoded = this.jwtService.verify(token, {
+      secret: JWT_SECRET,
+    });
+
+    /**
+     * sub: id
+     * email: email,
+     * type: 'access | 'refresh'
+     */
+    if (decoded.type !== 'refresh') {
+      throw new UnauthorizedException(
+        '토큰 재발급은 Refresh 토큰으로만 가능합니다!',
+      );
+    }
+
+    return this.signToken(
+      {
+        ...decoded,
+      },
+      isRefreshToken,
+    );
   }
 }
