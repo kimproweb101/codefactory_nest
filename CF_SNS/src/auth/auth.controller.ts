@@ -29,6 +29,17 @@ export class AuthController {
     };
   }
 
+  @Post('login/local')
+  postLoginLocal(
+    @Body('email') email: string,
+    @Body('password') password: string,
+  ) {
+    return this.authService.loginWithEmail({
+      email,
+      password,
+    });
+  }
+
   @Post('login/email')
   postLoginEmail(@Headers('authorization') rawToken: string) {
     const token = this.authService.extractTokenFromHeader(rawToken, false);

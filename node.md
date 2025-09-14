@@ -91,3 +91,5 @@ pnpm add @nestjs/jwt bcrypt
 등록
 
 ## Dependency 에러 해결법
+
+90. Pipe 소개 & ParseIntPipe 사용해보기
