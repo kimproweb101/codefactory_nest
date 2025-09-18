@@ -7,10 +7,9 @@ import {
   Request,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { MaxLengthPipe, MinLengthPipe } from './pipe/password.pipe';
 import { BasicTokenGuard } from './guard/basic-token.guard';
 import { RefreshTokenGuard } from './guard/bearer-token.guard';
-import { RegisterUserDto } from 'src/posts/dto/register-user.dto';
+import { RegisterUserDto } from 'src/users/dto/register-user.dto';
 
 @Controller('auth')
 export class AuthController {
