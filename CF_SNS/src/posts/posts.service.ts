@@ -52,7 +52,15 @@ export class PostsService {
     // 해당되는 포스트가 0개 이상이면
     // 마지막 포스트를 가져오고
     // 아니면 null을 반환한다
-    const lastItem = posts.length > 0 ? posts[posts.length - 1] : null;
+
+    // const lastItem = posts.length > 0 ? posts[posts.length - 1] : null;
+
+    // 마지막 페이지 로직 조건 추가 - 페이지 길이가 페이당 목록수와 같은경우 다음페이지가 있음
+    // 같지 않은 경우 마지막페이지로 보고 lastItem 에 null 할당
+    const lastItem =
+      posts.length > 0 && posts.length === dto.take
+        ? posts[posts.length - 1]
+        : null;
     const nextUrl = lastItem && new URL(`${PROTOCOL}://${HOST}/posts`);
 
     if (nextUrl) {
