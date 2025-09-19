@@ -37,8 +37,36 @@ export class PostsService {
       });
     }
   }
-  // 1) 오름차순으로 정렬하는 pagination만 구현
+
   async paginatePosts(dto: PaginatePostDto) {
+    if (dto.page !== undefined) {
+      return this.pagePaginatePosts(dto);
+    } else {
+      return this.cursoPaginatePosts(dto);
+    }
+  }
+
+  async pagePaginatePosts(dto: PaginatePostDto) {
+    /**
+     * data: data[],
+     * total: number,
+     * nest: ??
+     */
+
+    const [posts, count] = await this.postsRepository.findAndCount({
+      skip: dto.take * ((dto.page ?? 1) - 1),
+      take: dto.take,
+      order: {
+        createdAt: dto.order__createdAt,
+      },
+    });
+    return {
+      data: posts,
+      total: count,
+    };
+  }
+
+  async cursoPaginatePosts(dto: PaginatePostDto) {
     const where: FindOptionsWhere<PostsModel> = {};
 
     if (dto.where__id_less_than) {
