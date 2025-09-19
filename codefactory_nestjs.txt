@@ -1,0 +1,291 @@
+
+섹션 1. 강의 소개 및 이론
+1. 필독!!
+2. Backend Engineer 소개
+3. 간단한 nodeJS 소개
+4. nodeJS 기술적 소개
+5. HTTP
+6. NestJS 소개
+
+섹션 2. 세팅하기
+7. macOS 환경설정
+8. Windows 환경설정
+9. YARN 최신버전 호환 문제
+
+섹션 3. nodeJS와 Express를 사용해서 기본적인 서버 만들기
+10. 기본 nodeJS 서버 만들기
+11. Path 별로 다른 응답 변환하기
+12. Express REST API 구현해보기
+13. NestJS Hello World 해보기
+
+섹션 4. 프로젝트 컨셉
+14. 프로젝트 컨셉
+
+섹션 5. Controller (컨트롤러)
+15. Request Life Cycle (요청 라이프 사이클)
+16. 프로젝트 생성하기
+17. 포스트 JSON 반환하기
+18. 데코레이터에 Path 추가하기
+19. Posts 모듈 생성하기
+20. Postman을 사용해서 요청 보내기
+
+섹션 6. Query and Parameters (쿼리와 파라미터)
+21. REST API 세트
+22. Get Posts 구현하기
+23. ID Param을 이용해서 하나의 Post 가져오기
+24. Not Found Exception 던지기
+25. 기본적으로 제공되는 Exception들 찾는 곳
+26. Post 요청 만들기
+27. Patch Post 엔드포인트 생성하기
+28. Delete 엔드포인트 생성하기
+
+섹션 7. Service (서비스)
+29. Service 소개
+30. Service로 모든 로직 옮기기
+
+섹션 8. Module, Provider and Inversion of Control (제어의 역전)
+31. Dependency Injection & Inversion of Control (의존성 주입 & 제어의 역전)
+32. Module, Provider 그리고 Inversion of Control 코드로 이해하기
+33. AppModule과 main.ts 파일
+
+섹션 9. SQL & Docker
+34. SQL 기본기
+35. Docker 이론
+36. Docker Compose 이론
+37. [Mac] 도커 설치하기
+38. [Windows] 도커 설치하기
+39. Docker Compose 파일 작성해보기
+40. VSC에서 Postgresql 익스플로러 사용해보기
+
+섹션 10. Typeorm 사용해보기
+41. NestJS에 Typeorm 설정하기
+42. Entity로 테이블 생성하기
+43. Repository 주입하기
+44. Find 함수 사용해서 다수의 데이터 가져오기
+45. FindOne 함수 이용해서 하나의 데이터만 찾기
+46. Create 함수로 새로운 데이터 생성하기
+47. Save 함수로 업데이트 하기
+48. Delete 함수로 데이터 삭제하기
+
+섹션 11. Typeorm 이론
+49. Typeorm 공부할 프로젝트 세팅하기
+50. Column Annotation들 탐구하기
+51. update: false 사용시 에러 안던지는 버그
+52. Column Property 정리하기
+53. Enum Column
+54. Entity Embedding
+55. Table Inheritance
+56. Relationship 이론
+57. One to One Relationship 작업해보기
+58. Many to One & One to Many Relationship 구현해보기
+59. Many to Many Relationship 구현해보기
+60. Relation Options
+61. FindMany Options 파라미터 알아보기
+62. Typeorm 유틸리티 탐구
+63. 흔히 사용되는 메서드
+
+섹션 12. Relations (관계)
+64. SQL Relations
+65. UserModel 생성하기
+66. Column 옵션 탐구
+67. Enum Column 생성하기
+68. User 관련 서비스 및 컨트롤러 기능 작성하기
+69. Author Relation 생성하기
+70. 에러 해결하고 데이터베이스 초기화하기
+71. Relation 이용해서 데이터 생성해보기
+72. Relation 포함한 쿼리 작성하기
+
+섹션 13. 디버거 사용하기
+73. 디버거 사용하기
+
+섹션 14. Authentication (인증)
+74. Session vs JWT Token 이론
+75. JWT Token 실습 - JWT.IO
+76. Access Token and Refresh Token 이론
+77. Encryption (암호화)
+78. 로그인 로직 정리하기
+79. 토큰 signing 해보기
+80. Dependency 에러 해결하는법
+81. loginUser 함수 작업하기
+82. authenticateWithEmailAndPassword 함수 작업하기
+83. loginWithEmail 함수 작업하기
+84. registerWithEmail 함수 정의하기
+85. 회원가입, 로그인 엔드포인트 만들기
+86. Token Refresh 기능 정리하기
+87. 헤더 값으로부터 토큰 추출하는 로직 작성하기
+88. 토큰 시스템을 사용하도록 엔드포인트 변경하기
+89. 토큰 재발급 로직 코딩하기
+
+섹션 15. Pipe (파이프)
+90. Pipe 소개 & ParselntPipe 사용해보기
+91. 직접 Custom Pipe 만들어보기
+92.DefaultValuePipe 사용해보기
+93. 여러개의 파이프 동시에 사용하기
+
+섹션 16. 상속을 이용한 BaseModel 구현
+94. UpdatedAt과 CreatedAt을 자동으로 생성하는 방법
+95. BaseModel 적용하기
+섹션 17. PgAdmin
+96. [Mac] PgAdmin 설치하기
+97. [Windows] PgAdmin 설치하기
+98.PgAdmin 사용법
+
+섹션 18. Guard (가드)
+99. Guard 이론 & 구현할 스펙 정리
+100. BasicTokenGuard 구현해보기
+101. BearerTokenGuard 구현해보기
+섹션 19. Custom Decorator (커스텀 데코레이터)
+102. AccessTokenGuard 적용해보기
+103. User 커스텀 데코레이터 생성하기
+104. 커스텀 데코레이터의 data 파라미터 사용해보기
+
+섹션 20. Postman 기능 심화
+105. 환경변수 사용하기
+106. Test로 환경변수 저장하기
+107. Authorization 탭 이용해서 Basic 토큰보내기
+108. 회원가입 라우트에 Test 적용하기
+109. 헤더에 Bearer 토큰 적용하기
+
+섹션 21. Class Validator
+110. Class Validator와 DTO 사용하기
+111. 다양한 Class Validator Annotation 정보 찾는 곳
+112. Class Validator 에러 메세지 변경하기
+113. PickType 활용하기
+114. IsOptional Annotation 사용해보기
+115. Put 요청 Patch로 변경
+116. Length Annotation과 Email Annotation 사용하기
+117. Validation Message 일반화 하기
+
+섹션 22. Class Transformer
+118. Exclude Annotation
+119. Exclude Annotation 옵션 탐구하기
+120. ClassSerializer AppModule에 적용해보기
+121. Expose Annotation 사용해보기
+122. Expose Annotation 클래스에 적용하기
+
+섹션 23. Pagination 기본기 - Cursor Pagination
+123. Pagination 이론
+124. PaginatePostDto 생성하기
+125. MoreThan과 Order로 필터링하기
+126. 랜덤 데이터 생성하는 로직 만들기
+127. Type Annotation 사용해보기 & Implicit Conversion 적용해보기
+128. CursorPagination 메타데이터 생성하기
+129. 마지막 페이지 로직 조건 추가하기
+130. 다음 커서가 존재하지 않을때 undefined 대신 null 반환하기
+131. 내림차순 Next 토큰 로직 작성하기
+132. 내림차순 정렬 Where 쿼리 작성하기
+
+섹션 24. Pagination 기본기 - Page Pagination
+133. DTO에 Page 프로퍼티 추가하기
+134. Post 응답 생성하기
+135. 응답에 total 프로퍼티 추가하기
+
+섹션 25. Pagination 심화 - 일반화 하기
+136. BasePaginationDto 생성하기
+137. BasePaginationDto 리펙터링 하고 paginate() 함수 선언하기
+138. 작업할 Pagination 로직 정리하기
+139. DTO를 이용해서 FindOptions 생성하기
+140. Parse WhereFilter 작업하기
+141. composeFindOptions 함수 완성하기
+142. Cursor Pagination 적용하기
+143. Page Pagination 작업하기
+144. 추가 쿼리 프로퍼티 테스팅하기
+145. DTO 프로퍼티 whitelisting 하기
+146. Override Options 사용해보기
+
+섹션 26. Config 모듈 사용하기
+147. ENV 파일 작성하기
+148. 환경변수 적용하기 - 1
+149. 환경변수 적용하기-2
+150. process 객체를 이용해서 환경변수 불러오기
+
+섹션 27. 파일 업로드 - 클래식 방법
+151. Multer 세팅하기
+152. FileInterceptor 적용하기
+
+섹션 28. Static File Serving - 스태틱 파일 서빙하기
+153. Static File Serving 옵션 추가하기
+154. Class Transformer 이용해서 URL에 prefix 추가해주기
+
+섹션 29. 파일 업로드 - 선 업로드 방식
+155. 이론
+156. 이미지 업로드 엔드포인트 생성하기
+157. POST posts 엔드포인트 변경하기
+158. 엔티티가 생성될때 임시 폴더로부터 이미지 파일 이동시키기
+
+섹션 30. Transaction (트랜젝션)
+159. Transaction 소개
+160.ImageModel 만들기
+161. ImageModel 생성하는 로직 작성하기
+162. Transaction 시작하기
+163. Transaction 적용하고 테스트하기
+
+섹션 31. Interceptor (인터셉터)
+164. Interceptor 이론
+165. Interceptor를 이용해서 로거 구현하기
+166. Transaction Interceptor 생성하기
+167. QueryRunner 커스텀 데코레이터 만들기 & Transaction Interceptor 적용하기
+
+섹션 32. Exception Filter (예외 필터)
+168. Exception Filter 소개
+169. HttpExceptionFilter 만들기
+
+섹션 33. Middleware (미들웨어)
+170. Middleware 이론
+171. Middleware 생성하고 사용해보기
+섹션 34. [Websocket] SocketIO- 기본기
+172. Websocket 이론
+173. Socket IO 이론
+174. Gateway 생성하고 메세지 리스닝하기
+175. 서버에서 이벤트 전송하기
+176. Room 활용하기
+177. Broadcasting
+178. Chat Entity 생성하기
+179. Paginate Chat API 생성하기
+180. Enter Chat 이벤트 업데이트 & WSException 던지기
+181. 메세지 보내기 마무리하기
+
+섹션 35. [Websocket] SocketIO - 심화
+182. Validation Pipe
+183. Exception Filter 적용하기
+184. Guard 적용하기
+185. 데코레이터 기반으로 로직 변경하기
+186. AccessToken을 매번 검증할때의 문제
+187. Socket에 사용자 정보 저장하기
+188. Gateway Lifecycle Hooks
+
+섹션 36. 모듈 네스팅
+189. 섹션 소개 및 작업 인스트럭션
+190. Comments Entity 생성하기
+191. Paginate Comments API 만들기
+192. ID 기반으로 하나의 Comment 가져오는 API 작성하기
+193. Comment 생성 API 작업하기
+194. Patch Comment API 작업하기
+195. Delete Comment API 작업하기
+196. Path Parameter 검증하는 Middleware 생성하기
+197. PostExists Middleware CommentsController에 적용하기
+
+섹션 37. RBAC - Role Based Access Control
+198. Roles Decorator 작업하기
+199. RolesGuard 생성하고 적용하기
+200. 모든 Route 기본 Private로 만들고 IsPublic Annotation 작업하기
+201. Public Route 정리하기
+
+섹션 38. Authorization
+202. IsPostMineOrAdmin 가드 생성하기
+203.IsPostMineOrAdmin 적용하고 테스트하기
+204.IsCommentMineOrAdminGuard 생성 및 적용
+
+섹션 39. Follow System (팔로우 시스템)
+205. Follow System 이론
+206. Followers & Followees 프로퍼티 생성하기
+207. Follow 시스템 로직 작성하고 테스트하기
+208. Follow Table 직접 생성하기
+209. Custom Table에 맞춰서 로직 변경해보기
+210. Confirm Follow 로직 추가하기
+211. 팔로우 취소 요청 작업하기
+
+섹션 40. 팔로워 카운트, 코멘트 카운트 작업하기
+212. Follow Count Incremet & Decrement 작업하기-1
+213. Follow Count Incremet & Decrement 작업하기-2
+214. Comment Count 작업하기
